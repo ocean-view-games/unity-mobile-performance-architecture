@@ -1,5 +1,7 @@
 # Unity Mobile Performance Architecture
 
+![CI](https://github.com/ocean-view-games/unity-mobile-performance-architecture/actions/workflows/ci.yml/badge.svg)
+
 A collection of production-ready C# utility scripts for managing performance on mobile devices in Unity. These components handle [thermal throttling](https://oceanviewgames.co.uk/services/mobile), memory budgeting, frame timing analysis, adaptive quality scaling, and battery-aware task scheduling, giving you a complete performance management system for iOS and Android. Built and battle-tested by [Ocean View Games](https://oceanviewgames.co.uk/services/performanceoptimization), a studio that specialises in mobile game optimisation.
 
 ## The Problem
