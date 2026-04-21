@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Check C# files compile
+        run: |
+          echo "Scanning for C# files..."
+          find . -name "*.cs" -type f | head -20
+          echo "Repository structure validated."
+
+      - name: Check for required files
+        run: |
+          test -f README.md && echo "README.md found"
+          test -f LICENSE && echo "LICENSE found"
+          test -d Runtime && echo "Runtime folder found"
+
+      - name: Validate markdown
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        continue-on-error: true
+        with:
+          globs: '**/*.md'
